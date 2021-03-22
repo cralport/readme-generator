@@ -45,14 +45,30 @@ const questions = [
     {
         type: 'input',
         name: 'Installation',
+        message: 'What do you need to install for this to work.'
     },
     {
         type: 'input',
-        name: 'Usage'
+        name: 'Usage',
+        message: ''
+    },
+    {
+        type: 'checkbox',
+        name: 'License',
+        message: 'Which license would you like to choose?',
+        choices: ["Apache License 2.0","GNU GPLv3", "MIT", "ISC", "None"],
     },
     {
         type: 'input',
-        name: ''
+        name: 'Contributing',
+    },
+    {
+        type: 'input',
+        name: 'Tests',
+    },
+    {
+        type: 'input',
+        name: 'Questions',
     }
 ];
 
@@ -70,24 +86,24 @@ function writeToFile(fileName, data) {
 // }));
 // TODO: Create a function to initialize app
 function init() {
-    console.log("hello");
-    const temp = [
-        {
-            type: 'input',
-            name: 'title',
-            message: 'What is the title?'
-        },
-        {
-            type: 'input',
-            name: 'description',
-            message: 'write a description',
-        }
-    ]
-    inquirer.prompt(temp).then(function(value){
+    //console.log("hello");
+    // const temp = [
+    //     {
+    //         type: 'input',
+    //         name: 'title',
+    //         message: 'What is the title?'
+    //     },
+    //     {
+    //         type: 'input',
+    //         name: 'description',
+    //         message: 'write a description',
+    //     }
+    // ]
+    inquirer.prompt(questions).then(function(value){
         
-        let temp = generateMarkdown(value)
+        let questoins = generateMarkdown(value)
        
-        writeToFile("asdf.txt", temp);
+        writeToFile("readme.txt", questions);
     })
         
  }
