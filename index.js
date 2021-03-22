@@ -50,7 +50,7 @@ const questions = [
     {
         type: 'input',
         name: 'Usage',
-        message: ''
+        message: 'Provide instructions and examples in this section.'
     },
     {
         type: 'list',
@@ -84,7 +84,7 @@ function writeToFile(fileName, data) {
 
 
     
-// }));
+
 // TODO: Create a function to initialize app
 function init() {
   
