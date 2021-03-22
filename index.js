@@ -53,7 +53,7 @@ const questions = [
         message: ''
     },
     {
-        type: 'checkbox',
+        type: 'list',
         name: 'License',
         message: 'Which license would you like to choose?',
         choices: ["Apache License 2.0","GNU GPLv3", "MIT", "ISC", "None"],
@@ -61,14 +61,17 @@ const questions = [
     {
         type: 'input',
         name: 'Contributing',
+        message: 'Please list who has contributed to this project.'
     },
     {
         type: 'input',
         name: 'Tests',
+        message: 'If applicable, please provied any tests written for this project.'
     },
     {
         type: 'input',
         name: 'Questions',
+        message: 'For any questions regarding this project I can be reached at (Give Email/GitHub).'
     }
 ];
 
@@ -80,28 +83,14 @@ function writeToFile(fileName, data) {
 
 
 
-// console.log(generateMarkdown({
-//     title: 'input'
     
 // }));
 // TODO: Create a function to initialize app
 function init() {
-    //console.log("hello");
-    // const temp = [
-    //     {
-    //         type: 'input',
-    //         name: 'title',
-    //         message: 'What is the title?'
-    //     },
-    //     {
-    //         type: 'input',
-    //         name: 'description',
-    //         message: 'write a description',
-    //     }
-    // ]
+  
     inquirer.prompt(questions).then(function(value){
         
-        let questoins = generateMarkdown(value)
+        let questions = generateMarkdown(value)
        
         writeToFile("readme.txt", questions);
     })
