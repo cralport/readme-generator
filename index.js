@@ -9,71 +9,60 @@ const generateMarkdown = require('./utils/generateMarkdown.js');
 const questions = [
     {
         type: 'input',
-        name: 'Name',
+        name: 'title',
         message: 'What is the name of your project?',
-        validate: nameInput => {
-            if (nameInput) {
-                return true;
-            } else {
-                console.log("Please enter a project name");
-                return false;
-            }
-        }
+       
     },
     {
         type: 'input',
-        name: 'Github',
-        message: 'Enter your GitHub Username.',
-        validate: nameInput => {
-            if (nameInput) {
-                return true;
-            } else {
-                console.log("Please enter your GitHub Username");
-                return false;
-            }  
-        }
-    },
-    {
-        type: 'input',
-        name: 'Description',
+        name: 'description',
         message: 'Please enter a brief description of your project.',
     },
     {
         type: 'input',
-        name: 'Table of Contents',
+        name: 'table of Contents',
     },
     {
         type: 'input',
-        name: 'Installation',
+        name: 'installation',
         message: 'What do you need to install for this to work.'
     },
     {
         type: 'input',
-        name: 'Usage',
+        name: 'usage',
         message: 'Provide instructions and examples in this section.'
     },
     {
-        type: 'list',
-        name: 'License',
+        type: 'checkbox',
+        name: 'license',
         message: 'Which license would you like to choose?',
         choices: ["Apache License 2.0","GNU GPLv3", "MIT", "ISC", "None"],
     },
     {
         type: 'input',
-        name: 'Contributing',
+        name: 'contributing',
         message: 'Please list who has contributed to this project.'
     },
     {
         type: 'input',
-        name: 'Tests',
+        name: 'tests',
         message: 'If applicable, please provied any tests written for this project.'
     },
     {
         type: 'input',
-        name: 'Questions',
-        message: 'For any questions regarding this project I can be reached at (Give Email/GitHub).'
+        name: 'questions',
+        message: 'For any questions regarding this project I can be reached at (Give Email/GitHub).',
+        validate: nameInput => {
+            if (nameInput) {
+                return true;
+            } else {
+                console.log('Please enter your GitHub Usernam/Email address');
+                return false;
+            }
+        }
     }
 ];
+
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) { 
@@ -92,7 +81,7 @@ function init() {
         
         let questions = generateMarkdown(value)
        
-        writeToFile("readme.txt", questions);
+        writeToFile("readme.md", questions);
     })
         
  }
