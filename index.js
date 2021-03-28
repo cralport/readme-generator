@@ -20,10 +20,6 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'table of Contents',
-    },
-    {
-        type: 'input',
         name: 'installation',
         message: 'What do you need to install for this to work.'
     },
@@ -33,7 +29,7 @@ const questions = [
         message: 'Provide instructions and examples in this section.'
     },
     {
-        type: 'checkbox',
+        type: 'list',
         name: 'license',
         message: 'Which license would you like to choose?',
         choices: ["Apache License 2.0","GNU GPLv3", "MIT", "ISC", "None"],
