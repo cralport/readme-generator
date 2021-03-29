@@ -26,7 +26,7 @@ const questions = [
     {
         type: 'input',
         name: 'usage',
-        message: 'Provide instructions and examples in this section (example a screen shot or video demo).'
+        message: 'Provide instructions and examples in this section (example a screenshot or video demo).'
     },
     {
         type: 'list',
